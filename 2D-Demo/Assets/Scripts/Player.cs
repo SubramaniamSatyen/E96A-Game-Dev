@@ -50,6 +50,14 @@ public class Player : MonoBehaviour
         isGrounded = true;
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Coin")
+        {
+            Destroy(other.gameObject); 
+        }
+    }
+
     private void Move(float x){
         rb.velocity = new Vector2(x * speed, rb.velocity.y);
     }
